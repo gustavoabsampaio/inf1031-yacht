@@ -1,3 +1,5 @@
+__all__ = ["combinacoes_possiveis"]
+
 
 def jogada1(dados):
     for i in dados:
@@ -35,23 +37,68 @@ def jogada6(dados):
             return True
     return False
 
-# def trinca(dados):
+def trinca(dados):
+    c1 = dados.count(1)
+    c2 = dados.count(2)
+    c3 = dados.count(3)
+    c4 = dados.count(4)
+    c5 = dados.count(5)
+    c6 = dados.count(6)
 
-# def quadra(dados):
+    if c1>=3 or c2>=3 or c3>=3 or c4>=3 or c5>=3 or c6>=3:
+        return True
+    return False
 
-# def full_house(dados):
+def quadra(dados):
+    c1 = dados.count(1)
+    c2 = dados.count(2)
+    c3 = dados.count(3)
+    c4 = dados.count(4)
+    c5 = dados.count(5)
+    c6 = dados.count(6)
 
-# def seq_a(dados):
+    if c1>=4 or c2>=4 or c3>=4 or c4>=4 or c5>=4 or c6>=4:
+        return True
+    return False
+    
 
-# def seq_b(dados):
+def full_house(dados):
+    conta = [dados.count(v) for v in set(dados)]
+    if (3 in conta) and (2 in conta) and len(dados)==5:
+        return True
+    else:
+        return False
 
-# def yam(dados):
-#     if len(dados)!=5:
-#         return False
-#     for i in dados:
-#         if dados[i] != dados[0]:
-#             return False
-#     return True
+def seq_a(dados):
+    c2 = dados.count(2)
+    c3 = dados.count(3)
+    c4 = dados.count(4)
+    c5 = dados.count(5)
+    c6 = dados.count(6)
+
+    if c2 == 1 and c3 == 1 and c4 == 1 and c5 == 1 and c6 == 1:
+        return True
+    return False
+
+def seq_b(dados):
+    c1 = dados.count(1)
+    c2 = dados.count(2)
+    c3 = dados.count(3)
+    c4 = dados.count(4)
+    c5 = dados.count(5)
+
+    if c2 == 1 and c3 == 1 and c4 == 1 and c5 == 1 and c1 == 1:
+        return True
+    return False
+
+
+def yam(dados):
+    if len(dados)!=5:
+        return False
+    for i in dados:
+        if dados[i+1] != dados[0]:
+            return False
+    return True
     
     
 def combinacoes_possiveis(dados):    
@@ -72,7 +119,7 @@ def combinacoes_possiveis(dados):
         lista_comb.append(7)
     if quadra(dados):
         lista_comb.append(8)
-    if full_houes(dados):
+    if full_house(dados):
         lista_comb(9)
     if seq_a(dados):
         lista_comb.append(10)
@@ -80,15 +127,7 @@ def combinacoes_possiveis(dados):
         lista_comb.append(11)
     if yam(dados):
         lista_comb.append(12)
+    return lista_comb
     
     
     
-# def trinca
-# def quadra
-# def full_house
-# def seq-
-# def seq+
-# def yathzee
-
-#def combinacoes_possiveis(dados):
-
