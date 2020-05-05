@@ -1,4 +1,8 @@
 import unittest
+from dado import *
+from jogada import *
+from jogador import *
+from tabela import *
 
 if __name__ == "__main__":
     unittest.main()
@@ -16,19 +20,13 @@ class Jogador(unittest.TestCase):
         self.assertEqual(retorno_esperado,0)
 
     def teste_exclui_jogador_sucesso(self):
-        
         retorno_esperado = exclui_jogador("Teste")
         self.assertEqual(retorno_esperado, 0)
 
     def teste_exclui_jogador_inexistente(self):
-        
         retorno_esperado = exclui_jogador("Deus")
         self.assertEqual(retorno_esperado, 1)
 
-    def teste_exclui_jogador_string_vazia(self):
-        
-        retorno_esperado = exclui_jogador("")
-        self.assertEqual(retorno_esperado, 2)
 
 class Jogada(unittest.TestCase):
 
@@ -67,11 +65,11 @@ class Tabela(unittest.TestCase):
         self.assertGreaterEqual(retorno_esperado, 0)
 
     def teste_pontua_tabela_jogador_inexistente(self):
-        retorno_esperado = pontua_tabela("", [1,2], "dupla")
+        retorno_esperado = pontua_tabela("", [1,2], "trinca")
         self.assertEqual(retorno_esperado, -1)
 
     def teste_pontua_tabela_dado_erro(self):
-        retorno_esperado = pontua_tabela("João", [7,8], "dupla")
+        retorno_esperado = pontua_tabela("João", [7,8], "trinca")
         self.assertEqual(retorno_esperado, -2)
 
     def teste_pontua_tabela_combinacao_invalida(self):
