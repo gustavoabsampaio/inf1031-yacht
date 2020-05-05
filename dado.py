@@ -120,7 +120,7 @@ def combinacoes_possiveis(dados):
     if quadra(dados):
         lista_comb.append(8)
     if full_house(dados):
-        lista_comb(9)
+        lista_comb.append(9)
     if seq_a(dados):
         lista_comb.append(10)
     if seq_b(dados):

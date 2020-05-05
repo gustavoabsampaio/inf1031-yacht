@@ -1,3 +1,4 @@
+from jogador import get_jogadores
 __all__ = ["cria_coluna","pontua_tabela","consulta_tabela","pontuacao_final","exclui_colunas"]
 
 # jogada de 1 - 1
@@ -25,7 +26,8 @@ def cria_coluna(jogador):
 def pontua_tabela(jogador,dados,combinacao):
     if jogador not in get_jogadores():
         return -1
-    if dados
+    if not(len(dados) < 6 and len(dados) > 0):
+        return -2
     if combinacao < -1 or combinacao > 13 or combinacao == 0:
         return -3
     pontos = 0
@@ -33,7 +35,6 @@ def pontua_tabela(jogador,dados,combinacao):
         pontos += dado
     colunas[combinacao] = pontos
     return pontos
-    
     
 def consulta_tabela(jogador):
     if jogador not in get_jogadores():

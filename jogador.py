@@ -17,6 +17,9 @@ def exclui_jogador(nome):
             return 1
     return 0
 
+def get_jogadores():
+    return jogadores
+
 # def get_jogador(nome):
 #     for i in jogadores:
 #         if jogadores[i] == nome:
