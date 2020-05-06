@@ -1,0 +1,3 @@
+como rodar o teste_funcoes_acesso.py
+1. abra seu terminal ou env com python instalado
+2. rode python -m unittest tests_funcoes_acesso.py
