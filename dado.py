@@ -1,6 +1,5 @@
 from random import randint
-__all__ = ["combinacoes_possiveis"]
-
+__all__ = ["combinacoes_possiveis","get_dados","rola_dados"]
 dados = [0,0,0,0,0]
 
 def get_dados():
@@ -13,7 +12,35 @@ def rola_dados(posicoes):
     dados = dados.sort()
     return 1
 
-
+def combinacoes_possiveis(dados): 
+    if not dados:
+        return -1   
+    lista_comb = []
+    if jogada1(dados):
+        lista_comb.append(1)
+    if jogada2(dados):
+        lista_comb.append(2)
+    if jogada3(dados):
+        lista_comb.append(3)
+    if jogada4(dados):
+        lista_comb.append(4)
+    if jogada5(dados):
+        lista_comb.append(5)
+    if jogada6(dados):
+        lista_comb.append(6)
+    if trinca(dados):
+        lista_comb.append(7)
+    if quadra(dados):
+        lista_comb.append(8)
+    if full_house(dados):
+        lista_comb.append(9)
+    if seq_a(dados):
+        lista_comb.append(10)
+    if seq_b(dados):
+        lista_comb.append(11)
+    if yam(dados):
+        lista_comb.append(12)
+    return lista_comb
 
 def jogada1(dados):
     for i in dados:
@@ -113,37 +140,3 @@ def yam(dados):
         if dados[i+1] != dados[0]:
             return False
     return True
-    
-    
-def combinacoes_possiveis(dados): 
-    if not dados:
-        return -1   
-    lista_comb = []
-    if jogada1(dados):
-        lista_comb.append(1)
-    if jogada2(dados):
-        lista_comb.append(2)
-    if jogada3(dados):
-        lista_comb.append(3)
-    if jogada4(dados):
-        lista_comb.append(4)
-    if jogada5(dados):
-        lista_comb.append(5)
-    if jogada6(dados):
-        lista_comb.append(6)
-    if trinca(dados):
-        lista_comb.append(7)
-    if quadra(dados):
-        lista_comb.append(8)
-    if full_house(dados):
-        lista_comb.append(9)
-    if seq_a(dados):
-        lista_comb.append(10)
-    if seq_b(dados):
-        lista_comb.append(11)
-    if yam(dados):
-        lista_comb.append(12)
-    return lista_comb
-    
-    
-    
