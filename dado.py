@@ -115,7 +115,9 @@ def yam(dados):
     return True
     
     
-def combinacoes_possiveis(dados):    
+def combinacoes_possiveis(dados): 
+    if not dados:
+        return -1   
     lista_comb = []
     if jogada1(dados):
         lista_comb.append(1)
