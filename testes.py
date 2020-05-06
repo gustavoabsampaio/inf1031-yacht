@@ -30,17 +30,32 @@ class Jogador(unittest.TestCase):
 
 class Jogada(unittest.TestCase):
 
-    def teste_joga_sucesso(self):
-        retorno_esperado = joga("Jogador",[2,5])
-        self.assertEqual(retorno_esperado, 0)
-
-    def teste_joga_jogador_inexistente(self):
-        retorno_esperado = joga("Deus",[1])
+    def teste_proximo_jogador(self):
+        retorno_esperado = proximo_jogador(["Jogador1","Jogador2"])
         self.assertEqual(retorno_esperado, 1)
 
-    def teste_joga_dado_inalcancavel(self):
-        retorno_esperado = joga("Jogador",[2,7])
-        self.assertEqual(retorno_esperado,2)
+    def teste_incrementa_jogada(self):
+        retorno_esperado = incrementa_jogada()
+        self.assertEqual(retorno_esperado, 1)
+
+    def teste_incrementa_rodada(self):
+        retorno_esperado = incrementa_jogada()
+        self.assertEqual(retorno_esperado, 1)
+
+    def teste_reseta_jogada(self):
+        retorno_esperado = reseta_jogada()
+        self.assertEqual(retorno_esperado, 1)
+
+    def teste_reseta_rodada(self):
+        retorno_esperado = reseta_rodada()
+        self.assertEqual(retorno_esperado, 1)
+
+    def teste_reseta_jogador_atual(self):
+        retorno_esperado = reseta_jogador_atual()
+        self.assertEqual(retorno_esperado, 1)
+
+    
+
 
 
 class Dado(unittest.TestCase):
