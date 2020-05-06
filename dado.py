@@ -1,4 +1,18 @@
+from random import randint
 __all__ = ["combinacoes_possiveis"]
+
+dados = [0,0,0,0,0]
+
+def get_dados():
+    return dados
+
+def rola_dados(posicoes):
+    global dados
+    for posicao in posicoes:
+        dados[posicao] = randint(1,6)
+    dados = dados.sort()
+    return 1
+
 
 
 def jogada1(dados):

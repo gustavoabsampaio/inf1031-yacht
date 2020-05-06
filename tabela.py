@@ -17,6 +17,32 @@ __all__ = ["cria_coluna","pontua_tabela","consulta_tabela","pontuacao_final","ex
 
 colunas = []
 
+def pontua(combinacao,dados):
+    if combinacao == 1:
+        return dados.count(1)
+    if combinacao == 2:
+        return dados.count(2)*2
+    if combinacao == 3:
+        return dados.count(3)*3
+    if combinacao == 4:
+        return dados.count(4)*4
+    if combinacao == 5:
+        return dados.count(5)*5
+    if combinacao == 6:
+        return dados.count(6)*6
+    if combinacao == 7:
+        return sum(dados)
+    if combinacao == 8:
+        return sum(dados)
+    if combinacao == 9:
+        return 25
+    if combinacao == 10:
+        return 30
+    if combinacao == 11:
+        return 40
+    if combinacao == 12:
+        return 50
+
 def cria_coluna(jogador):
     if jogador not in get_jogadores():
         return 0
@@ -30,9 +56,7 @@ def pontua_tabela(jogador,dados,combinacao):
         return -2
     if combinacao < -1 or combinacao > 13 or combinacao == 0:
         return -3
-    pontos = 0
-    for dado in dados:
-        pontos += dado
+    pontos = pontua(combinacao,dados)
     colunas[combinacao] = pontos
     return pontos
     
@@ -42,6 +66,8 @@ def consulta_tabela(jogador):
     return colunas[jogador]
 
 def pontuacao_final(jogador):
+    if jogador not in get_jogadores():
+        return -1
     pontuacao = 0
     for pontos in colunas[jogador][1:]:
         pontuacao += pontos
@@ -49,7 +75,7 @@ def pontuacao_final(jogador):
 
 def exclui_colunas():
     colunas.clear()
-    return
+    return 1
 
 # cria_tabela() - cria uma tabela vazia, retorna 1 para operação com sucesso
 # cria_coluna(jogador) - recebe um jogador e cria o seu respectivo espaço na tabela. Retorna 1 caso insira com sucesso e retorna 0 caso o jogador não exista

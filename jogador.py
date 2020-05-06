@@ -1,4 +1,4 @@
-__all__ = ["insere_jogador", "exclui_jogador", "get_jogador"]
+__all__ = ["insere_jogador", "exclui_jogador", "get_jogadores"]
 
 jogadores = []
 
