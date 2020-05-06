@@ -1,0 +1,6 @@
+Relatório Gustavo Rodrigues
+
+Módulo Jogador 1/2 HH
+Módulo Dado 2 HH's
+testes.py 2 HH's
+Criaçao do modelo de "Módulos e interface"
