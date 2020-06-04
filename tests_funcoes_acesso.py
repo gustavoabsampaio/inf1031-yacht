@@ -178,7 +178,3 @@ class Tabela(unittest.TestCase):
         exclui_jogador("João")
         exclui_colunas()
         self.assertEqual(retorno_esperado, -1)
-
-    # def test_combinacoes_possiveis(self):
-
-

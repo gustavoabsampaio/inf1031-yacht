@@ -1,31 +1,35 @@
-CREATE TABLE jogador (
-	nome varchar(50) NOT NULL,
+DROP TABLE IF EXISTS jogo;
+CREATE TABLE jogo(
 	id int NOT NULL AUTO_INCREMENT,
-	
-	CONSTRAINT pk_jogador PRIMARY KEY 	(id)
-	);
-	
+	ultima_data date NOT NULL,
 
+	CONSTRAINT pk_id_jogo PRIMARY KEY (id)
+);
+
+DROP TABLE IF EXISTS jogada;
 CREATE TABLE jogada (
 
 	jogador_atual varchar(20) NOT NULL,
 	rodada int NOT NULL,
-	jogada int NOT NULL
-	fk_id_jogo int,														
+	jogada int NOT NULL,
+	fk_id_jogo int,												
 	
-	CONSTRAINT jogo_id_fk FOREIGN KEY (fk_id_jogo) REFERENCES jogo(id)
+	CONSTRAINT fk_jogada_jogo_id FOREIGN KEY (fk_id_jogo) REFERENCES jogo(id)
 );
 
+DROP TABLE IF EXISTS dados;
 CREATE TABLE dados(
+	fk_id_jogo int NOT NULL,
 	id int NOT NULL,
-
-	CONSTRAINT pk_dados PRIMARY KEY (id)
-
+	valor int,
+	CONSTRAINT pk_dados PRIMARY KEY (id),
+	CONSTRAINT fk_dados_jogo_id FOREIGN KEY (fk_id_jogo) REFERENCES jogo(id)
 	);
 
+DROP TABLE IF EXISTS tabela;
 CREATE TABLE tabela(
-	nome_jogador varchar(50) NOt NULL,
-	id_jogo int NOT NULL,
+	nome_jogador varchar(50) NOT NULL,
+	fk_id_jogo int NOT NULL,
 	jogada_1 int NULL,
 	jogada_2 int NULL,
 	jogada_3 int NULL,
@@ -39,16 +43,7 @@ CREATE TABLE tabela(
 	sequencia_b int NULL,
 	yam int NULL,
 
-	CONSTRAINT tabela_pk PRIMARY KEY (nome_jogador, id_jogo),
-	CONSTRAINT id_jogo_fk FOREIGN KEY (id_jogo) REFERENCES jogo(id)
+	CONSTRAINT pk_nome_id_tabela PRIMARY KEY (nome_jogador, fk_id_jogo),
+	CONSTRAINT fk_tabela_jogo_id FOREIGN KEY (fk_id_jogo) REFERENCES jogo(id)
 );
-
-CREATE TABLE jogo(
-	id int NOT NULL AUTO_INCREMENT,
-	ultima_data date NOT NULL,
-
-	CONSTRAINT pk_id PRIMARY KEY
-);
-
-
 
