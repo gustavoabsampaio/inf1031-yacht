@@ -46,4 +46,3 @@ CREATE TABLE tabela(
 	CONSTRAINT pk_nome_id_tabela PRIMARY KEY (nome_jogador, fk_id_jogo),
 	CONSTRAINT fk_tabela_jogo_id FOREIGN KEY (fk_id_jogo) REFERENCES jogo(id)
 );
-

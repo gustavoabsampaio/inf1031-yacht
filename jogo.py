@@ -1,4 +1,24 @@
+#imports locais
+from jogada import *
+from dado import *
+from jogador import *
+from tabela import *
+
+#imports de terceiros
 import tkinter as tk
+
+def numero_jogadores():
+    n = int(input('Escolha o número de jogadores (1-6):'))
+    return n
+
+def cria_jogadores():
+    n = numero_jogadores()
+    i = 1
+    while n>0:
+        jogador = input("Insira o nome do jogador " + str(i) + ":")
+        insere_jogador(jogador)
+        i+=1
+        n-=1
 
 class App(tk.Tk):
     def __init__(self):
