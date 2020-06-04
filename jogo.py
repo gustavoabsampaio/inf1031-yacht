@@ -19,6 +19,16 @@ def cria_jogadores():
         insere_jogador(jogador)
         i+=1
         n-=1
+    return 
+
+def cria_tabela():
+    lista = get_jogadores()
+    for i in lista:
+        cria_coluna(lista[i])
+    return
+
+
+
 
 class App(tk.Tk):
     def __init__(self):
