@@ -27,9 +27,6 @@ def cria_tabela():
         cria_coluna(lista[i])
     return
 
-
-
-
 class App(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
@@ -46,8 +43,19 @@ class App(tk.Tk):
 class StartMenu(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
-        tk.Button(self, text="Start", command=lambda: master.switch_frame(Game)).pack()
+        tk.Button(self, text="Start", command=lambda: master.switch_frame(StartGame)).pack()
         tk.Button(self, text="Quit", command=quit).pack()
+
+class StartGame(tk.Frame):
+    def __init__(self, master):
+        tk.Frame.__init__(self, master)
+        tk.Label(self, text="Name").pack()
+        nome = tk.Entry(self)
+        nome.pack()
+        tk.Button(self, text="Add Player", command=(lambda n=nome.get(): insere_jogador(n))).pack()
+        #tk.Button(self, text="Remove Player").pack()
+        tk.Button(self, text="Start", command=lambda: master.switch_frame(Game)).pack()
+        tk.Button(self, text="Main Menu", command=lambda: master.switch_frame(StartMenu)).pack
 
 class Game(tk.Frame):
     def __init__(self, master):
