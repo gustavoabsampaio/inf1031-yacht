@@ -55,7 +55,7 @@ class StartGame(tk.Frame):
         tk.Button(self, text="Add Player", command=(lambda n=nome.get(): insere_jogador(n))).pack()
         #tk.Button(self, text="Remove Player").pack()
         tk.Button(self, text="Start", command=lambda: master.switch_frame(Game)).pack()
-        tk.Button(self, text="Main Menu", command=lambda: master.switch_frame(StartMenu)).pack
+        tk.Button(self, text="Main Menu", command=lambda: master.switch_frame(StartMenu)).pack()
 
 class Game(tk.Frame):
     def __init__(self, master):

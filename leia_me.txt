@@ -1,3 +1,13 @@
 como rodar o teste_funcoes_acesso.py
 1. abra seu terminal ou env com python instalado
 2. rode python -m unittest tests_funcoes_acesso.py
+
+como rodar a interface (em progresso):
+1. execute o arquivo jogo.py
+
+como criar o banco:
+1. instalar mysql e o conector mysql para python
+2. conectar ao server (usuario: root, senha: root)
+3. criar o banco de dados no mysql (crate database nome_do_banco)
+4. selecionar o banco criado (use nome_do_banco)
+5. copiar e colar o codigo no arquivo banco.sql no console mysql
