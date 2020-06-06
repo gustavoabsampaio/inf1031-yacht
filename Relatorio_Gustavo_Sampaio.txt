@@ -4,3 +4,9 @@ Módulo Tabela 2 HH's
 Módulo Jogada 1 HH
 teste.py 1 HH
 Revisão do modelo da "Arquitetura modular"
+
+------------------------------------------
+
+Correção do Modelo Relacional
+DDL do banco de dados 1HH
+Adições à interface 2 HH
