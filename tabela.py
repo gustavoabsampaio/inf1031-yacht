@@ -1,5 +1,5 @@
 from jogador import get_jogadores
-__all__ = ["cria_coluna","pontua_tabela","consulta_tabela","pontuacao_final","exclui_colunas"]
+__all__ = ["cria_coluna","pontua_tabela","consulta_tabela","pontuacao_final","exclui_colunas","get_colunas"]
 
 colunas = []
 
@@ -72,3 +72,6 @@ def pontuacao_final(jogador):
 def exclui_colunas():
     colunas.clear()
     return 1
+
+def get_colunas():
+    return colunas

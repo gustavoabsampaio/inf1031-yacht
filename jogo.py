@@ -6,6 +6,7 @@ from tabela import *
 
 #imports de terceiros
 import tkinter as tk
+from tkinter import *
 
 def numero_jogadores():
     n = int(input('Escolha o número de jogadores (1-6):'))
@@ -83,15 +84,16 @@ class Game(tk.Frame):
         tk.Frame.__init__(self, master)
         tk.Label(self, text="Game").pack()
         tk.Button(self, text="Main Menu", command=lambda: master.switch_frame(StartMenu)).pack()
-        tk.Label(self, text="Table").pack()
-        for i in range(linhas):
-            for j in range(colunas):
-                self.e = Entry(root,widht = 15, fg = 'black')
-                self.e.grid(row = i, column =j)
-                self.e.insert(END, lst[i][j])
-                
-# lst = get              
+        info = get_colunas()
+        listbox = Listbox(master,width = 75)
+        listbox.pack()
+        listbox.insert(END,"{:<5s}  {:<5s}  {:<5s}  {:<5s} {:<5s}  {:<5s}  {:<5s}  {:<5s} {:<5s}  {:<5s}  {:<5s}  {:<5s}".format("Nome","1","2","3","4","5","6","Trinca  ","Quadra ","Full House ","Seq alta","Seq Baixa","YAM"))
+        for i in range (len(info)):
+            item = "{:<5s}  {:<5s}  {:<5s}  {:<5s} {:<5s}  {:<5s}  {:<5s}  {:<5s} {:<5s}  {:<5s}  {:<5s}  {:<5s}".format(info[i][0],info[i][1],info[i][2],info[i][3],info[i][4],info[i][5],info[i][6],info[i][7],info[i][8],info[i][9],info[i][10],info[i][11],info[i][12])
+            print (item)
+            listbox.insert(END,item)
 
+                
 
 
 app = App()
