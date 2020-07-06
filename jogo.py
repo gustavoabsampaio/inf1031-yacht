@@ -43,25 +43,56 @@ class App(tk.Tk):
 class StartMenu(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
-        tk.Button(self, text="Start", command=lambda: master.switch_frame(StartGame)).pack()
+        tk.Button(self, text="Start", command=lambda: master.switch_frame(SetupGame)).pack()
         tk.Button(self, text="Quit", command=quit).pack()
 
-class StartGame(tk.Frame):
+class SetupGame(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
-        tk.Label(self, text="Name").pack()
-        nome = tk.Entry(self)
+        output_label = tk.Label(self,fg = "black", text = "Jogadores")
+        output_label.pack()
+        self.output = tk.Label(self, fg = "black", bg = "white", height = 10, width = 15)
+        self.output.pack()
+        name_label = tk.Label(self, text="Name")
+        name_label.pack()
+        nome_var = tk.StringVar(self)
+        
+        def add_player():
+            nome_get = nome_var.get()
+            insert_status = insere_jogador(nome_get)
+            if insert_status:
+                self.get_output()
+                nome.delete(0, len(nome_get))
+
+        nome = tk.Entry(self, textvariable = nome_var)
         nome.pack()
-        tk.Button(self, text="Add Player", command=(lambda n=nome.get(): insere_jogador(n))).pack()
-        #tk.Button(self, text="Remove Player").pack()
-        tk.Button(self, text="Start", command=lambda: master.switch_frame(Game)).pack()
-        tk.Button(self, text="Main Menu", command=lambda: master.switch_frame(StartMenu)).pack()
+        add_player_button = tk.Button(self, text="Add Player", command=add_player)
+        add_player_button.pack()
+        start_button = tk.Button(self, text="Start", command=lambda: master.switch_frame(Game))
+        start_button.pack()
+        menu_button = tk.Button(self, text="Main Menu", command=lambda: master.switch_frame(StartMenu))
+        menu_button.pack()
+
+    def get_output(self):
+        jogadores = get_jogadores()
+        print(jogadores)
+        self.output["text"] = self.output["text"] + jogadores[len(jogadores)-1] + '\n'
 
 class Game(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
         tk.Label(self, text="Game").pack()
         tk.Button(self, text="Main Menu", command=lambda: master.switch_frame(StartMenu)).pack()
+        tk.Label(self, text="Table").pack()
+        for i in range(linhas):
+            for j in range(colunas):
+                self.e = Entry(root,widht = 15, fg = 'black')
+                self.e.grid(row = i, column =j)
+                self.e.insert(END, lst[i][j])
+                
+# lst = get              
+
+
 
 app = App()
 app.title("Yacht")

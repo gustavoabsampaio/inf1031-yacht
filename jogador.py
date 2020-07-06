@@ -9,7 +9,10 @@ def insere_jogador(nome):
     nome = nome.strip()
     if nome == '':
         return 0
+    if len(get_jogadores()) > 5:
+        return 0
     jogadores.append(nome)
+    print(jogadores)
     return 1
 
 # recebe o nome de um jogador e o exclui da lista de jogadores
